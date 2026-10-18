@@ -66,13 +66,13 @@ a:focus-visible { outline: 3px solid #deaa22; outline-offset: 4px; }
   .topbar { height: 70px; padding: 0 20px; }
   nav { display: none; }
   .top-contact { padding: 12px 13px; font-size: 11px; }
-  .hero { min-height: 760px; align-items: flex-start; }
-  .hero-content { width: 100%; padding: 55px 25px 360px; }
+  .hero { min-height: auto; align-items: stretch; flex-direction: column; padding-bottom: 82px; }
+  .hero-content { width: 100%; padding: 55px 25px 0; }
   h1 { max-width: 560px; font-size: clamp(35px, 9vw, 49px); }
   h2 { max-width: 480px; font-size: 17px; }
   .hero-copy { max-width: 480px; font-size: 14px; }
-  .portrait-wrap { top: auto; right: 50%; bottom: 65px; width: min(52vw, 190px); transform: translateX(50%); }
-  .portrait-caption { top: calc(100% + 22px); font-size: 9px; }
+  .portrait-wrap { position: relative; top: auto; right: auto; bottom: auto; width: min(52vw, 190px); margin: 23px auto 35px; transform: none; }
+  .portrait-caption { top: calc(100% + 18px); font-size: 9px; }
   .building-front { right: -1%; width: 57%; height: 57%; opacity: .68; }
   .building-back { right: -16%; width: 58%; height: 48%; }
   .crane { top: 11%; right: -28%; width: 70%; opacity: .7; }
