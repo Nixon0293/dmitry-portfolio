@@ -138,3 +138,56 @@ a:focus-visible { outline: 3px solid #deaa22; outline-offset: 4px; }
   .scene-glow, .hero-content, .portrait-wrap, .hero-label { animation: none !important; }
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+
+/* Дополнительные детали и движение */
+.topbar { position: sticky; z-index: 20; top: 0; background: #ffffffed; backdrop-filter: blur(14px); border-bottom: 1px solid #20211f0b; }
+.brand-mark { box-shadow: 0 0 0 0 #f3bd3260; animation: brand-pulse 3.5s ease-out infinite; }
+nav a { position: relative; padding: 8px 0; }
+nav a::after { position: absolute; right: 0; bottom: 2px; left: 0; height: 1px; content: ''; background: var(--yellow); transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+nav a:hover::after, nav a:focus-visible::after { transform: scaleX(1); }
+.hero { min-height: clamp(600px, 76svh, 820px); }
+.scene { background: radial-gradient(ellipse at 73% 44%, #e6b62f22, transparent 32%), linear-gradient(90deg, #111513f5 0%, #171a19e8 38%, #191b1a8a 72%, #191b1a62 100%), linear-gradient(0deg, #131615 0%, transparent 36%), linear-gradient(125deg, #515755, #232625 58%, #4b4d48); }
+.scene-glow { mix-blend-mode: screen; }
+.portrait-wrap { transition: filter .35s ease; }
+.portrait-wrap::before { position: absolute; z-index: -1; inset: -23px; border: 1px dashed #f3bd327d; border-radius: 50%; content: ''; animation: orbit-turn 36s linear infinite; }
+.portrait-ring { transition: box-shadow .35s ease; }
+.portrait-wrap:hover { filter: drop-shadow(0 14px 30px #0005); }
+.portrait-wrap:hover .portrait-ring { box-shadow: 0 0 0 11px #ffffff13, 0 0 60px #f3bd3260; }
+.portrait { transition: transform .45s cubic-bezier(.2,.8,.2,1); }
+.portrait-wrap:hover .portrait { transform: scale(1.035); }
+.portrait-chip { position: absolute; z-index: 2; display: inline-flex; align-items: center; gap: 10px; padding: 10px 13px; border: 1px solid #ffffff34; border-radius: 2px; background: #20211fdc; color: #f7f6f2; font: 700 9px 'Manrope', sans-serif; letter-spacing: .12em; box-shadow: 0 10px 30px #0003; backdrop-filter: blur(10px); }
+.portrait-chip span { color: var(--yellow); font-size: 13px; }
+.portrait-chip-top { top: 17%; right: -35px; animation: chip-float 4.5s ease-in-out infinite; }
+.portrait-chip-bottom { bottom: 17%; left: -48px; animation: chip-float 5.2s ease-in-out infinite reverse; }
+.primary-button { position: relative; overflow: hidden; box-shadow: 0 7px 24px #f3bd3230; }
+.primary-button::after { position: absolute; top: -70%; left: -45%; width: 25%; height: 240%; content: ''; background: #ffffff6b; transform: rotate(22deg); transition: left .55s ease; }
+.primary-button:hover::after { left: 130%; }
+.proof { min-height: 86px; overflow: hidden; justify-content: flex-start; gap: clamp(22px, 4vw, 56px); }
+.proof > p { flex: none; }
+.proof-marquee { min-width: 0; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+.proof-track { display: flex; width: max-content; align-items: center; animation: ticker 32s linear infinite; }
+.proof-track:hover { animation-play-state: paused; }
+.proof-track > span { display: inline-flex; align-items: center; gap: clamp(22px, 4vw, 56px); padding-right: clamp(22px, 4vw, 56px); color: #e2e0d8; font-size: 10px; font-weight: 700; letter-spacing: .12em; white-space: nowrap; }
+.proof-track i { color: var(--yellow); font-size: 15px; font-style: normal; }
+.achievement-card { overflow: hidden; }
+.achievement-card::after { position: absolute; right: -28px; bottom: -60px; width: 140px; height: 140px; border: 1px solid #f3bd3233; border-radius: 50%; content: ''; transform: scale(.7); transition: transform .45s ease; }
+.achievement-card:hover::after { transform: scale(1.25); }
+.achievements-contact a { box-shadow: 0 8px 24px #20211f1c; }
+@keyframes orbit-turn { to { transform: rotate(360deg); } }
+@keyframes chip-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -7px; } }
+@keyframes ticker { to { transform: translateX(-50%); } }
+@keyframes brand-pulse { 0% { box-shadow: 0 0 0 0 #f3bd3260; } 70%, 100% { box-shadow: 0 0 0 10px #f3bd3200; } }
+@media (max-width: 760px) {
+  .topbar { position: relative; }
+  .hero { min-height: auto; }
+  .portrait-chip-top { top: 17%; right: -22px; }
+  .portrait-chip-bottom { bottom: 17%; left: -25px; }
+  .proof { align-items: flex-start; flex-direction: column; gap: 13px; }
+  .proof-marquee { width: 100%; }
+  .proof-track > span { font-size: 9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-mark, .portrait-wrap::before, .portrait-chip, .proof-track { animation: none !important; }
+  .primary-button::after { display: none; }
+}
