@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Дмитрий Некрашевич — продажи, клиентский сервис и бизнес-операции.">
   <title>Дмитрий Некрашевич — продажи и бизнес-операции</title>
-  <link rel="stylesheet" href="style.css?v=mobile-centered-2">
+  <link rel="stylesheet" href="style.css?v=achievements-motion-1">
 </head>
 <body>
   <main class="site" id="top">
@@ -14,6 +14,7 @@
       <nav aria-label="Основная навигация">
         <a href="#about">Обо мне</a>
         <a href="#focus">Специализация</a>
+        <a href="#achievements">Достижения</a>
         <a href="#contact">Контакты</a>
       </nav>
       <a class="top-contact" href="mailto:nixon0293@gmail.com">Написать мне <span aria-hidden="true">↗</span></a>
@@ -52,6 +53,64 @@
       <span>БИЗНЕС-ПРОЦЕССЫ</span><span class="divider"></span>
       <span>РОСТ КОМАНДЫ</span>
     </footer>
+
+    <section class="achievements" id="achievements" aria-labelledby="achievements-title">
+      <div class="achievements-inner">
+        <div class="achievements-heading">
+          <div>
+            <p class="section-kicker"><span>02</span> МОИ ДОСТИЖЕНИЯ</p>
+            <h2 id="achievements-title">Работа, которая<br><em>даёт рост</em></h2>
+          </div>
+          <p class="achievements-intro">В продажах важны не только цифры. Для меня результат начинается с доверия клиента, понятных договорённостей и порядка в ежедневных процессах.</p>
+        </div>
+
+        <div class="achievement-grid">
+          <article class="achievement-card">
+            <div class="achievement-card-top"><span>01 / КЛИЕНТЫ</span><span class="achievement-symbol" aria-hidden="true">↗</span></div>
+            <h3>Внимание к запросу</h3>
+            <p>Сначала понять, что действительно нужно человеку, а затем помочь найти подходящее решение.</p>
+            <span class="card-bottom">КЛИЕНТСКИЙ ПОДХОД</span>
+          </article>
+
+          <article class="achievement-card">
+            <div class="achievement-card-top"><span>02 / ПРОДАЖИ</span><span class="achievement-symbol" aria-hidden="true">＋</span></div>
+            <h3>Диалог и доверие</h3>
+            <p>Понятно рассказывать о продукте, отвечать на вопросы и выстраивать общение без лишнего давления.</p>
+            <span class="card-bottom">ОТ ПЕРВОГО КОНТАКТА</span>
+          </article>
+
+          <article class="achievement-card">
+            <div class="achievement-card-top"><span>03 / ПРОЦЕССЫ</span><span class="achievement-symbol" aria-hidden="true">✓</span></div>
+            <h3>Порядок в работе</h3>
+            <p>Планировать задачи, держать фокус на главном и доводить договорённости до результата.</p>
+            <span class="card-bottom">СИСТЕМНЫЙ ПОДХОД</span>
+          </article>
+        </div>
+
+        <div class="achievements-contact">
+          <span>ОТКРЫТ К НОВЫМ ЗАДАЧАМ И ЗНАКОМСТВАМ</span>
+          <a href="mailto:nixon0293@gmail.com">Обсудить сотрудничество <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
   </main>
+  <script>
+    const revealItems = document.querySelectorAll('.achievements-heading, .achievement-card, .achievements-contact');
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.16 });
+
+      revealItems.forEach((item) => {
+        item.classList.add('reveal');
+        revealObserver.observe(item);
+      });
+    }
+  </script>
 </body>
 </html>
